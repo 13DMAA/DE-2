@@ -27,9 +27,16 @@ void FridayPause () {
          }
       }
       else if (P){
-         RectangleCreate (Array2M[k].time,0.5,Array2M[i++].time,3,"FridayMonday "+i,clrDarkGray);
+         RectangleCreate (Array2M[k].time,0.5,Array2M[i++].time,3,"FridayMonday "+i,clrOlive);
          j=0;
          P = false;
       }
    }
+      if (TimeDayOfWeek(TimeCurrent()) == 1 || TimeDayOfWeek(TimeCurrent()) == 5) {
+         P = true;
+         //BuySell = false;
+         RectangleCreate (TimeCurrent(),0.5,TimeCurrent() + Period()*60,3,"FridayMonday "+ TimeCurrent(),clrOlive,true);
+         P = false;
+      }
+   
 }
